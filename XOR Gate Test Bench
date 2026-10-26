@@ -1,0 +1,21 @@
+module xor_gate_tb();
+  reg c;
+  reg a,b;
+  xor_gate x1(a,b,c);
+  initial begin
+    a=1'b0;b=1'b0;
+    $display("%b,%b",a,b);
+   #10 b=1'b1;
+    $display("%b,%b,%b",a,b,c);
+   #10 a=1'b1;
+    $display("%b,%b,%b",a,b,c);
+   #10 b=1'b0;
+    $display("%b,%b,%b",a,b,c);
+    #50$finish();
+  end
+  initial
+    begin
+      $dumpfile("dump.vcd");
+      $dumpvars();
+    end
+endmodule
